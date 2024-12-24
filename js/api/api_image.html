@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3></h3>
+
+    <script>
+        let api = fetch("https://fakestoreapi.com/products")
+        console.log(api);
+
+        let arr = api.then((a) => {
+            return a.json()
+        })
+        console.log(arr);
+        arr.then((a) => {
+            a.map((b, i) => {
+                document.querySelector("h3").innerHTML += `<img src="${b.image}" class="im"> <br>`
+                document.getElementsByClassName("im")[i].style = "height:200px; width:200px"
+            })
+        })
+    </script>
+</body>
+
+</html>
